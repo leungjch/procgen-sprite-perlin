@@ -6,10 +6,9 @@ HEIGHT = 800
 // GRIDW = WIDTH
 // GRIDH = HEIGHT
 
-GRIDW = 128
-GRIDH = 128
-
-SYMMETRY = "diagonal"
+GRIDW = 64
+GRIDH = 64
+SYMMETRY = "vertical"
 
 nColors = 10
 // build color palette
@@ -25,7 +24,7 @@ ellipseLat = Math.random()*2
 ellipseLong = Math.random()*2
 console.log(ellipseLat)
 
-noiseScale = 0.01
+noiseScale = 0.3
 t = 0
 function setup() {
     createCanvas(WIDTH, HEIGHT);
@@ -38,7 +37,7 @@ function setup() {
       // colors.push(color(255, Math.random()*255, Math.random()*255))
 
     }
-    frameRate(60)
+    frameRate(6)
   }
   
   function draw() {
@@ -95,7 +94,7 @@ function setup() {
             // f = 1-1/(1+(distance/(1-distance))**(3))
 
             // Wavelet
-            // f = (Math.sin(-sin(t)*50*distance)/(2*distance))
+            f = (Math.sin(-sin(t)*50*distance)/(2*distance))
             // f = (Math.sin(-sin(t)/t*500*distance)/(distance))
 
             // Vanilla distance
@@ -191,7 +190,7 @@ function setup() {
             }
         }
     }
-    t+=0.05
+    t+=0.01
     // noiseScale = Math.tan(t)
 
     updatePixels();
